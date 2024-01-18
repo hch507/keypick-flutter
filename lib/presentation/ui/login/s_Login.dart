@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_keypick/presenter/ui/non_login/s_non_login.dart';
+
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+
+import '../../presenter/login_controller.dart';
+import '../non_login/s_non_login.dart';
+import '../user_blog/s_user.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,9 +15,9 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
   TextEditingController inputController = TextEditingController();
-
+  final controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,19 +26,19 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 200,
             ),
-            Text(
+            const Text(
               "안녕하세요.",
               style: TextStyle(fontSize: 50),
             ),
-            Text("네이버 블로그ID를 입력 하여 \n다양한 서비스를 이용하세요."),
-            SizedBox(
+            const Text("네이버 블로그ID를 입력 하여 \n다양한 서비스를 이용하세요."),
+            const SizedBox(
               height: 50,
             ),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   labelText: "Blog ID",
                   hintText: "BlogID를 입력하세요",
                   border: OutlineInputBorder(
@@ -43,15 +47,21 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: inputController,
               maxLines: 1,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            ElevatedButton(onPressed: () {}, child: Text("등록")),
             ElevatedButton(
-                onPressed: () {
-                  Get.to(() => NonLoginScreen());
-                },
-                child: Text("ID등록 없이 시작하기"))
+              onPressed: () {
+                isLogin.requestLogin(inputController.text);
+              },
+              child: Text("등록"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.to(() => NonLoginScreen());
+              },
+              child: Text("ID등록 없이 시작하기"),
+            ),
           ],
         ),
       ),

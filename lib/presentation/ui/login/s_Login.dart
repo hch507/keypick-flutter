@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_keypick/presentation/ui/search/s_keyword.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -52,7 +53,8 @@ class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
             ),
             ElevatedButton(
               onPressed: () {
-                isLogin.requestLogin(inputController.text);
+                // isLogin.requestLogin(inputController.text);
+                Get.to(()=>KeywordScreen());
               },
               child: Text("등록"),
             ),

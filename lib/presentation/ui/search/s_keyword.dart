@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keypick/presentation/ui/search/tab/keyword/f_keyword.dart';
+import 'package:flutter_keypick/presentation/ui/user_blog/tab/rank/f_rank.dart';
 import 'package:flutter_keypick/presentation/ui/widget/custom_bottom_nav.dart';
 
 class KeywordScreen extends StatefulWidget {
@@ -37,7 +38,7 @@ class _KeywordScreenState extends State<KeywordScreen> {
           ],
         ),
       ),
-    body: KeywordFragment(),
+    body: RankFragment(),
     bottomNavigationBar: CustomBottomNav("검색어", "연관 검색어"),
     );
   }

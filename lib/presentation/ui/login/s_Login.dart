@@ -54,13 +54,13 @@ class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
             ElevatedButton(
               onPressed: () {
                 // isLogin.requestLogin(inputController.text);
-                Get.to(()=>KeywordScreen());
+                Get.toNamed("/userPage");
               },
               child: Text("등록"),
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(() => NonLoginScreen());
+                Get.toNamed("/nonLogin");
               },
               child: Text("ID등록 없이 시작하기"),
             ),

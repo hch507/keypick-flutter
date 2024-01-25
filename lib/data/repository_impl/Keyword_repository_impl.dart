@@ -12,7 +12,7 @@ class KeywordRepositoryImpl extends KeywordRepository{
   @override
   Future<void> getPostingRank(String searchTerm) async {
 
-   naverRestClient.getBlogTotal("tZR4mxv0e3Le0j2F3mQP", "ZJoce5jaT6", 100, searchTerm, "sim").then((value) => log("Rank : ${value.items[0].title}"));
+    naverRestClient.getBlogTotal("tZR4mxv0e3Le0j2F3mQP", "ZJoce5jaT6", 100, searchTerm, "sim").then((value) => log("Rank : ${value.items[0].title}"));
 
   }
 

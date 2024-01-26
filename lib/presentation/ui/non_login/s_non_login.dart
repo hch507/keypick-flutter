@@ -14,7 +14,6 @@ class _NonLoginScreenState extends State<NonLoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
         title: Row(
           children: [
             Expanded(

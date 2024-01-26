@@ -5,8 +5,6 @@ import 'package:flutter_keypick/presentation/ui/non_login/s_non_login.dart';
 import 'package:flutter_keypick/presentation/ui/search/s_keyword.dart';
 import 'package:flutter_keypick/presentation/ui/user_blog/s_user.dart';
 import 'package:get/get.dart';
-
-
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {

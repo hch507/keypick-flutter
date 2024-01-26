@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_keypick/presentation/presenter/search_keywrord_controller.dart';
 
 class NonLoginScreen extends StatefulWidget {
   const NonLoginScreen({super.key});
@@ -8,7 +9,7 @@ class NonLoginScreen extends StatefulWidget {
 }
 
 class _NonLoginScreenState extends State<NonLoginScreen> {
-  TextEditingController textEditingController =TextEditingController();
+  // TextEditingController textEditingController =TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,10 @@ class _NonLoginScreenState extends State<NonLoginScreen> {
                     ),
                   ),
                 ),
-                controller: textEditingController,
+                // controller: textEditingController,
+                onSubmitted: (value){
+                  SearchKeywordController.to.getMonthRatioData(value);
+                },
               ),
             ),
             SizedBox(width: 30,)

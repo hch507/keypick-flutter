@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_keypick/presentation/bottom_controller/user_page_controller.dart';
 import 'package:flutter_keypick/presentation/ui/search/tab/keyword/f_keyword.dart';
+import 'package:flutter_keypick/presentation/ui/search/tab/rel_keyword/f_rel_keyword.dart';
 import 'package:flutter_keypick/presentation/ui/user_blog/tab/rank/f_rank.dart';
 import 'package:flutter_keypick/presentation/ui/widget/custom_bottom_nav.dart';
+import 'package:get/get.dart';
 
 class KeywordScreen extends StatefulWidget {
   const KeywordScreen({super.key});
@@ -38,7 +41,13 @@ class _KeywordScreenState extends State<KeywordScreen> {
           ],
         ),
       ),
-    body: RankFragment(),
+    body:  Obx((){
+      if(UserPageController.to.currentIndex.value==0){
+        return KeywordFragment();
+      }else{
+        return RelKeywordFragment();
+      }
+    }),
     bottomNavigationBar: CustomBottomNav("검색어", "연관 검색어"),
     );
   }

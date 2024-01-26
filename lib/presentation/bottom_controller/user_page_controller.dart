@@ -7,4 +7,5 @@ class UserPageController extends GetxController{
   void changeIndex(int index){
     currentIndex(index);
   }
+
 }

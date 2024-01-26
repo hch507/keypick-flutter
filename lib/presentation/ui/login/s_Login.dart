@@ -17,8 +17,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
-  TextEditingController inputController = TextEditingController();
+  late TextEditingController inputController;
   final controller = Get.put(LoginController());
+
+  @override
+  void initState() {
+    inputController =TextEditingController();
+    super.initState();
+  }
+  @override
+  void dispose() {
+    inputController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(

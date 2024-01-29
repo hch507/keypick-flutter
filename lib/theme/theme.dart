@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-var DefaultTheme = ThemeData(
+ThemeData DefaultTheme = ThemeData(
   useMaterial3: true,
+  scaffoldBackgroundColor: Color(0xFFFBFBFB),
   appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.blue,
+    backgroundColor: Color(0xFFf96060),
     foregroundColor: Colors.white,
     elevation: 1, // 그림자 정도
   ),
@@ -14,8 +15,16 @@ var DefaultTheme = ThemeData(
     filled: true,
     fillColor: Colors.white,
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.all(Color(0xFFFBFBFB)),
+      backgroundColor: MaterialStateProperty.all(Color(0xFFf96060)),
+    )
+  )
+  ,
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Colors.blueAccent,
-    selectedItemColor: Colors.black,
+    backgroundColor: Color(0xFFf96060),
+    selectedItemColor: Colors.white,
+    unselectedItemColor: Colors.white
   ),
 );

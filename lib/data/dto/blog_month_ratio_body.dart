@@ -20,7 +20,6 @@ class BlogMonthRatioBody {
             keywordGroups.map((group) => group.toJson())),
       };
 }
-
 class KeywordGroups {
   late String groupName;
   late List<String> keywords;

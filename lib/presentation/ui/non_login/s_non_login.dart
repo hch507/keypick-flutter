@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_keypick/presentation/presenter/search_keywrord_controller.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class NonLoginScreen extends StatefulWidget {
   const NonLoginScreen({super.key});
@@ -9,35 +10,19 @@ class NonLoginScreen extends StatefulWidget {
 }
 
 class _NonLoginScreenState extends State<NonLoginScreen> {
-  // TextEditingController textEditingController =TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: '검색 키워드를 입력해주세요',
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                ),
-                // controller: textEditingController,
-                onSubmitted: (value){
-                  SearchKeywordController.to.getMonthRatioData(value);
-                },
-              ),
-            ),
-            SizedBox(width: 30,)
-          ],
-        ),
+        title: Text("KeyPick"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed("/keywordSearch");
+            },
+            icon: Icon(Icons.search),
+          )
+        ],
       ),
       body: Container(
         height: double.infinity,

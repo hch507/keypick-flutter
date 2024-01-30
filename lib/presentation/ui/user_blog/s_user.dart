@@ -8,7 +8,6 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import '../../bottom_controller/user_page_controller.dart';
 import '../widget/custom_bottom_nav.dart';
 
-
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
 
@@ -19,50 +18,30 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   TextEditingController textEditingController = TextEditingController();
 
-  final List<Widget> _widgetOption = <Widget>[
-    HomeFragment(),
-    RankFragment()
-  ];
+  final List<Widget> _widgetOption = <Widget>[HomeFragment(), RankFragment()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: '검색 키워드를 입력해주세요',
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                ),
-                controller: textEditingController,
-                onSubmitted: (value) async{
-                  Get.toNamed("/keywordPage");
-                },
-              ),
-            ),
-            SizedBox(
-              width: 30,
-            )
-          ],
-        ),
+        title: Text("Keypick"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed("/keywordSearch");
+            },
+            icon: Icon(Icons.search),
+          )
+        ],
       ),
-      body: Obx((){
-        if(UserPageController.to.currentIndex.value==0){
+      body: Obx(() {
+        if (UserPageController.to.currentIndex.value == 0) {
           return HomeFragment();
-        }else{
+        } else {
           return RankFragment();
         }
       }),
-      bottomNavigationBar: CustomBottomNav("홈","랭킹"),
+      bottomNavigationBar: CustomBottomNav("홈", "랭킹"),
     );
   }
 }
-

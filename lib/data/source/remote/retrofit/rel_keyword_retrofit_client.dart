@@ -3,9 +3,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter_keypick/data/dto/rel_keyword_dto.dart';
 import 'package:retrofit/http.dart';
 
-@RestApi(baseUrl: "https://api.searchad.naver.com/")
+part 'rel_keyword_retrofit_client.g.dart';
+@RestApi(baseUrl:"https://api.searchad.naver.com/")
 abstract class RelKeywordRestClient{
-  RelKeywordRestClient(Dio dio, {String baseUrl})=> _RelKeywordRestClient;
+  factory RelKeywordRestClient(Dio dio, {String baseUrl})= _RelKeywordRestClient;
 
   @GET("keywordstool")
   Future<RelKeyword> getBlogTotal(

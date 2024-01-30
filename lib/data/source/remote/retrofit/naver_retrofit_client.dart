@@ -6,12 +6,7 @@ import '../../../dto/blog_month_ratio_body.dart';
 import '../../../dto/blog_month_ratio_dto.dart';
 import '../../../dto/blogtotal_dto.dart';
 part 'naver_retrofit_client.g.dart';
-//https://openapi.naver.com/v1/
-//id tZR4mxv0e3Le0j2F3mQP
-//pw ZJoce5jaT6
-//sort date
-//sort2 sim
-//search/blog.json
+
 @RestApi(baseUrl: "https://openapi.naver.com/v1/")
 abstract class NaverRestClient{
   factory NaverRestClient(Dio dio, {String baseUrl}) = _NaverRestClient;

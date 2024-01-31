@@ -1,35 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_keypick/presentation/ui/search/s_keyword.dart';
-
+import 'package:flutter_keypick/presentation/presenter/login_controller.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../presenter/login_controller.dart';
-import '../non_login/s_non_login.dart';
-import '../user_blog/s_user.dart';
+class LoginScreen extends GetView<LoginController> {
+  LoginScreen({super.key});
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  late String blogId;
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
-  late TextEditingController inputController;
-  final controller = Get.put(LoginController());
-
-  @override
-  void initState() {
-    inputController =TextEditingController();
-    super.initState();
-  }
-  @override
-  void dispose() {
-    inputController.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -56,7 +36,9 @@ class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   )),
-              controller: inputController,
+              onChanged: (value) {
+                blogId = value;
+              },
               maxLines: 1,
             ),
             const SizedBox(
@@ -64,8 +46,12 @@ class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
             ),
             ElevatedButton(
               onPressed: () {
-                // isLogin.requestLogin(inputController.text);
-                Get.toNamed("/userPage");
+                controller.requestLogin(blogId);
+                if (controller.isLogin.value) {
+                  Get.toNamed("/userPage");
+                } else {
+                  showToast();
+                }
               },
               child: Text("등록"),
             ),
@@ -80,4 +66,8 @@ class _LoginScreenState extends State<LoginScreen> with IsLoginProvider{
       ),
     );
   }
+}
+
+void showToast() {
+  Fluttertoast.showToast(msg: "존재하지 않은 블로그 입니다.", gravity: ToastGravity.BOTTOM);
 }

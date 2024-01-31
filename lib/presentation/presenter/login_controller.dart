@@ -1,7 +1,4 @@
 
-
-
-
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:xml/xml.dart';
@@ -18,17 +15,21 @@ class LoginController extends GetxController{
   }
 
   void requestLogin(String userID) async{
-    final resp =await client?.getUserData(userID);
-    XmlData = XmlDocument.parse(resp!);
-    final wantData = XmlData!.findAllElements('visitorcnt');
-    print(wantData.map((e) {
-      final id = e.getAttribute('id') ?? '';
-      final cnt = e.getAttribute('cnt') ?? '';
-      return {'id': id, 'cnt': cnt};
-    }));
-  }
-}
+    try{
+      await client?.getUserData(userID);
+      isLogin(true);
+      print("성공");
+    }catch(e){
+      isLogin(false);
+      print("실패");
+    }
 
-mixin IsLoginProvider{
-  late LoginController isLogin = Get.find();
+    // XmlData = XmlDocument.parse(resp!);
+    // final wantData = XmlData!.findAllElements('visitorcnt');
+    // print(wantData.map((e) {
+    //   final id = e.getAttribute('id') ?? '';
+    //   final cnt = e.getAttribute('cnt') ?? '';
+    //   return {'id': id, 'cnt': cnt};
+    // }));
+  }
 }

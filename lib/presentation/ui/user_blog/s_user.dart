@@ -18,8 +18,6 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   TextEditingController textEditingController = TextEditingController();
 
-  final List<Widget> _widgetOption = <Widget>[HomeFragment(), RankFragment()];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

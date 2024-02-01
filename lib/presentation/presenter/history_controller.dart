@@ -15,7 +15,5 @@ class HistoryController extends GetxController{
   void search(String search){
     history.addIf(!history.contains(search), search);
     profs.setStringList(key, history);
-
   }
-
 }

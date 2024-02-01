@@ -47,11 +47,7 @@ class LoginScreen extends GetView<LoginController> {
             ElevatedButton(
               onPressed: () {
                 controller.requestLogin(blogId);
-                if (controller.isLogin.value) {
-                  Get.toNamed("/userPage");
-                } else {
-                  showToast();
-                }
+
               },
               child: Text("등록"),
             ),

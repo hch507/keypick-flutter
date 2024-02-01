@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keypick/presentation/binding/init_binding.dart';
 import 'package:flutter_keypick/presentation/presenter/history_controller.dart';
 import 'package:flutter_keypick/presentation/presenter/login_controller.dart';
+import 'package:flutter_keypick/presentation/presenter/search_keywrord_controller.dart';
 import 'package:flutter_keypick/presentation/ui/keypick_main.dart';
 import 'package:flutter_keypick/presentation/ui/non_login/s_non_login.dart';
 import 'package:flutter_keypick/presentation/ui/search/s_keyword.dart';
@@ -27,18 +28,20 @@ class MyApp extends StatelessWidget {
       initialBinding: InitBinding(),
       initialRoute: "/login",
       getPages: [
-        GetPage(name: "/login", page: () => KeyPickMain(), binding:BindingsBuilder(
-            () => Get.lazyPut<LoginController>(() => LoginController())
-        )),
+        GetPage(name: "/login", page: () => KeyPickMain()),
         GetPage(name: "/nonLogin", page: () => NonLoginScreen()),
         GetPage(name: "/userPage", page: () => UserScreen()),
-        GetPage(name: "/keywordPage", page: () => KeywordScreen()),
+        GetPage(
+            name: "/keywordPage",
+            page: () => KeywordScreen(),
+            binding: BindingsBuilder(() => Get.lazyPut<SearchKeywordController>(
+                () => SearchKeywordController()))),
         GetPage(
           name: "/keywordSearch",
           page: () => KeywordSearchFragment(),
           transition: Transition.noTransition,
           binding: BindingsBuilder(
-                () => Get.lazyPut<HistoryController>(() => HistoryController()),
+            () => Get.lazyPut<HistoryController>(() => HistoryController()),
           ),
         ),
       ],

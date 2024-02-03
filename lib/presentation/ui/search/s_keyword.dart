@@ -5,6 +5,8 @@ import 'package:flutter_keypick/presentation/ui/search/tab/rel_keyword/f_rel_key
 import 'package:flutter_keypick/presentation/ui/widget/custom_bottom_nav.dart';
 import 'package:get/get.dart';
 
+import '../common/show_logout_dialog.dart';
+
 class KeywordScreen extends StatefulWidget {
   const KeywordScreen({super.key});
 
@@ -23,7 +25,16 @@ class _KeywordScreenState extends State<KeywordScreen> {
           IconButton(onPressed: () {
             Get.toNamed("/keywordSearch");
           },
-            icon: Icon(Icons.search),)
+            icon: Icon(Icons.search),),
+          GestureDetector(
+            onTap: () {
+              Get.toNamed("/storagePage");
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image(image: AssetImage("assets/images/storage.png"), width: 25, height: 25,),
+            ),
+          )
         ],
       ),
     body: Obx((){

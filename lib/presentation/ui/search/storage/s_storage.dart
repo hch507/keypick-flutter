@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_keypick/domain/model/vo_rel_keyword_model.dart';
-import 'package:flutter_keypick/presentation/ui/search/tab/rel_keyword/rel_keyword_item.dart';
+import 'package:flutter_keypick/presentation/ui/search/storage/storage_item.dart';
 
-class RelKeywordFragment extends StatelessWidget {
-  const RelKeywordFragment({super.key});
+import '../../../../domain/model/vo_rel_keyword_model.dart';
+
+class StorageScreen extends StatelessWidget {
+  const StorageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: relDummy.length,
-      itemBuilder: (BuildContext context, int index) {
-        return RelKeywordItem(relKeywordDataModel: relDummy[index],);
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("키워드 저장소"),
+      ),
+      body: ListView.builder(
+        itemCount: relDummy.length,
+        itemBuilder: (BuildContext context, int index) {
+          StorageItem(relKeywordDataModel: relDummy[index],);
+        },
+      ),
     );
   }
 }

@@ -7,7 +7,7 @@ import '../presenter/login_controller.dart';
 class InitBinding implements Bindings{
   @override
   void dependencies() {
-    Get.put(LoginController());
+     Get.put(LoginController());
   }
 
 }

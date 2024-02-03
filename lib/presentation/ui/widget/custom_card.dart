@@ -6,7 +6,6 @@ Widget CustomCard(String name, String cnt){
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(20)),
     ),
-
     elevation: 4,
     child: Container(
       width: 150,

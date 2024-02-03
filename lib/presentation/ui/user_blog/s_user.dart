@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_keypick/presentation/ui/common/show_logout_dialog.dart';
 import 'package:flutter_keypick/presentation/ui/search/s_keyword.dart';
 import 'package:flutter_keypick/presentation/ui/user_blog/tab/home/f_home.dart';
 import 'package:flutter_keypick/presentation/ui/user_blog/tab/rank/f_rank.dart';
@@ -29,6 +30,15 @@ class _UserScreenState extends State<UserScreen> {
               Get.toNamed("/keywordSearch");
             },
             icon: Icon(Icons.search),
+          ),
+          GestureDetector(
+            onTap: () {
+              ShowLogoutDialog(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image(image: AssetImage("assets/images/logout.png"), width: 25, height: 25,),
+            ),
           )
         ],
       ),
@@ -43,3 +53,4 @@ class _UserScreenState extends State<UserScreen> {
     );
   }
 }
+

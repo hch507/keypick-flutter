@@ -5,10 +5,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class LoginScreen extends GetView<LoginController> {
+
+class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
   late String blogId;
+  TextEditingController editingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +38,7 @@ class LoginScreen extends GetView<LoginController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   )),
-              onChanged: (value) {
-                blogId = value;
-              },
+              controller: editingController,
               maxLines: 1,
             ),
             const SizedBox(
@@ -46,8 +46,7 @@ class LoginScreen extends GetView<LoginController> {
             ),
             ElevatedButton(
               onPressed: () {
-                controller.requestLogin(blogId);
-
+                LoginController.to.requestLogin(editingController.text);
               },
               child: Text("등록"),
             ),

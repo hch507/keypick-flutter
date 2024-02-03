@@ -31,7 +31,7 @@ class KeywordSearchFragment extends GetView<HistoryController> {
                 controller: textEditingController,
                 onSubmitted: (value) async {
                   controller.search(value);
-                  // Get.toNamed("/keywordPage");
+                  Get.toNamed("/keywordPage");
                 },
               ),
             ),

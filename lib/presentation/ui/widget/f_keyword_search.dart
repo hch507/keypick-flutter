@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keypick/presentation/presenter/history_controller.dart';
+import 'package:flutter_keypick/presentation/presenter/search_keywrord_controller.dart';
 import 'package:get/get.dart';
 
 
@@ -30,6 +31,7 @@ class KeywordSearchFragment extends GetView<HistoryController> {
                 autofocus: true,
                 controller: textEditingController,
                 onSubmitted: (value) async {
+                  SearchKeywordController.to.getRelData(value);
                   controller.search(value);
                   Get.toNamed("/keywordPage");
                 },

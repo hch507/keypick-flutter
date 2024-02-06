@@ -8,6 +8,7 @@ class InitBinding implements Bindings{
   @override
   void dependencies() {
      Get.put(LoginController());
+     Get.put(SearchKeywordController());
   }
 
 }

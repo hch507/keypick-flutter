@@ -6,11 +6,15 @@ import 'package:flutter_keypick/data/dto/blog_month_ratio_body.dart';
 import 'package:flutter_keypick/data/source/remote/retrofit/naver_retrofit_client.dart';
 import 'package:flutter_keypick/domain/repository/keyword_repository.dart';
 
+import '../source/remote/retrofit/rel_keyword_retrofit_client.dart';
+
 class KeywordRepositoryImpl extends KeywordRepository {
   Dio dio = Dio();
   NaverRestClient naverRestClient;
 
+
   KeywordRepositoryImpl() : naverRestClient = NaverRestClient(Dio());
+
 
   @override
   Future<void> getPostingRank(String searchTerm) async {
@@ -36,6 +40,11 @@ class KeywordRepositoryImpl extends KeywordRepository {
     print("hch : ${body.toJson()}");
     naverRestClient.getKeywordData(
         "application/json", "oKQNT8007_pUD1FBJv0a", "Cp7YEq41hc", body).then((value) => log("MonthRatio : ${value.results[0].data.length}"));
+  }
+
+  @override
+  Future<void> getRelKeyword(String searchTerm) {
+    throw UnimplementedError();
   }
 
 }

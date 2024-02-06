@@ -5,7 +5,7 @@ class RelKeyword {
 
   factory RelKeyword.fromJson(Map<String, dynamic> json) => RelKeyword(
       keywordList:
-          List<Keyword>.from(json["keyword"].map((x) => Keyword.fromJson(x))));
+          List<Keyword>.from(json["keywordList"].map((x) => Keyword.fromJson(x))));
 }
 
 class Keyword {
@@ -32,14 +32,14 @@ class Keyword {
   });
 
   factory Keyword.fromJson(Map<String, dynamic> json) => Keyword(
-        compIdx: json["compIdx"],
-        monthlyAveMobileClkCnt: json["monthlyAveMobileClkCnt"],
-        monthlyAveMobileCtr: json["monthlyAveMobileCtr"],
-        monthlyAvePcClkCnt: json["monthlyAvePcClkCnt"],
-        monthlyAvePcCtr: json["monthlyAvePcCtr"],
-        monthlyMobileQcCnt: json["monthlyMobileQcCnt"],
-        monthlyPcQcCnt: json["monthlyPcQcCnt"],
-        plAvgDepth: json["plAvgDepth"],
-        relKeywor: json["relKeywor"],
+        compIdx: json["compIdx"].toString(),
+        monthlyAveMobileClkCnt: json["monthlyAveMobileClkCnt"].toString(),
+        monthlyAveMobileCtr: json["monthlyAveMobileCtr"].toString(),
+        monthlyAvePcClkCnt: json["monthlyAvePcClkCnt"].toString(),
+        monthlyAvePcCtr: json["monthlyAvePcCtr"].toString(),
+        monthlyMobileQcCnt: json["monthlyMobileQcCnt"].toString(),
+        monthlyPcQcCnt: json["monthlyPcQcCnt"].toString(),
+        plAvgDepth: json["plAvgDepth"].toString(),
+        relKeywor: json["relKeywor"].toString(),
       );
 }

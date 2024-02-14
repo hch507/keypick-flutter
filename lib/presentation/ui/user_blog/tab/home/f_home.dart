@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keypick/presentation/ui/widget/blog_bar_chart.dart';
+import 'package:get/get.dart';
 
-class HomeFragment extends StatefulWidget {
-  const HomeFragment({super.key});
+class HomeFragment extends StatelessWidget {
+  HomeFragment({super.key});
 
-  @override
-  State<HomeFragment> createState() => _HomeFragmentState();
-}
-
-class _HomeFragmentState extends State<HomeFragment> {
+  var blogID = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
@@ -26,7 +23,7 @@ class _HomeFragmentState extends State<HomeFragment> {
               Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "NAME",
+                  blogID as String,
                   style: TextStyle(fontSize: 30),
                 ),
               ),

@@ -9,14 +9,9 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import '../../bottom_controller/user_page_controller.dart';
 import '../widget/custom_bottom_nav.dart';
 
-class UserScreen extends StatefulWidget {
-  const UserScreen({super.key});
+class UserScreen extends StatelessWidget {
+  UserScreen({super.key});
 
-  @override
-  State<UserScreen> createState() => _UserScreenState();
-}
-
-class _UserScreenState extends State<UserScreen> {
   TextEditingController textEditingController = TextEditingController();
 
   @override

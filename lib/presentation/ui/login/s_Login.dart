@@ -9,7 +9,7 @@ import 'package:get/get_core/src/get_main.dart';
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
-  late String blogId;
+  late var blogId;
   TextEditingController editingController = TextEditingController();
 
   @override

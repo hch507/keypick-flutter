@@ -3,16 +3,13 @@ import 'package:flutter_keypick/presentation/presenter/rank_controller.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class RankFragment extends StatefulWidget {
-  const RankFragment({super.key});
+class RankFragment extends StatelessWidget {
+  RankFragment({super.key});
 
-  @override
-  State<RankFragment> createState() => _RankFragmentState();
-}
-
-class _RankFragmentState extends State<RankFragment> with RankProvider {
   TextEditingController textEditingController = TextEditingController();
+
   final controller = Get.put(RankController());
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -44,7 +41,7 @@ class _RankFragmentState extends State<RankFragment> with RankProvider {
             ),
             SizedBox(height:30),
             ElevatedButton(onPressed: (){
-              rankController.requestPostingRank(textEditingController.text);
+              RankController.to.requestPostingRank(textEditingController.text);
             }, child: Text("검색")),
             SizedBox(height:40),
             Row(

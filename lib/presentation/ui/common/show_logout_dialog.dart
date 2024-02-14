@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_keypick/presentation/presenter/login_controller.dart';
 import 'package:get/get.dart';
 
 void ShowLogoutDialog(BuildContext context) {
@@ -25,7 +26,8 @@ void ShowLogoutDialog(BuildContext context) {
         actions: [
           ElevatedButton(
               onPressed: () {
-                Get.offAllNamed("/login");
+                LoginController.to.requestLogOut();
+
               },
               child: Text("확인")),
           ElevatedButton(
